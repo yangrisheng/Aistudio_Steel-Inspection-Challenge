@@ -1,0 +1,19 @@
+metric: COCO
+num_classes: 6
+
+TrainDataset:
+  !COCODataSet
+    image_dir: JPEGImages
+    anno_path:  Annotations/voc_train.json
+    dataset_dir: ../../data/steel/train
+    data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd']
+
+EvalDataset:
+  !COCODataSet
+    image_dir: JPEGImages
+    anno_path: Annotations/voc_val.json
+    dataset_dir:  ../../data/steel/train
+
+TestDataset:
+  !ImageFolder
+    anno_path: /home/aistudio/data/steel/train/Annotations/voc_val.json
